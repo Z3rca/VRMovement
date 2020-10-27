@@ -14,7 +14,7 @@ public class NavMeshMovement : MonoBehaviour
     private NavMeshAgent agent;
     public SteamVR_Action_Vector2 moveAction = SteamVR_Input.GetAction<SteamVR_Action_Vector2>("platformer", "Move");
     public float speed;
-        
+    public bool DisableSideWayMovement;    
     private Vector3 MovementDirection;
     // Start is called before the first frame update
     void Start()
@@ -46,10 +46,16 @@ public class NavMeshMovement : MonoBehaviour
         
         
         Vector2 m = moveAction[hand].axis;
+
+
+        if (DisableSideWayMovement)
+        {
+            m.x = 0;
+        }
         
         // rotate towards a vector
      
-        Debug.Log("input" + m);
+        //Debug.Log("input" + m);
         agent.angularSpeed = 300;
         //agent.updateRotation = false;
 
@@ -65,14 +71,14 @@ public class NavMeshMovement : MonoBehaviour
         
         //Debug.Log("movement" + MovementDirection);
         
-        Debug.Log("this rotation"+ this.transform.rotation);
+        //Debug.Log("this rotation"+ this.transform.rotation);
         {
         }
         
         
         
         
-        Debug.Log("movement" + MovementDirection);
+       // Debug.Log("movement" + MovementDirection);
         
         
         Move(MovementDirection);
