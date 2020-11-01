@@ -52,10 +52,10 @@ public class NavMeshMovement : MonoBehaviour
         BodyDirection =  this.transform.rotation* BodyDirection;
         Debug.Log("body" + BodyDirection);
         Debug.Log("head" + direction);
-        MoveWith(BodyDirection);
+        MoveInToDirection(BodyDirection);
     }
 
-    private void MoveWith(Vector3 direction)
+    private void MoveInToDirection(Vector3 direction)
     {
         
         agent.Move(Time.deltaTime*speed*direction);
