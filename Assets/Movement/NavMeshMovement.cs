@@ -11,8 +11,7 @@ public class NavMeshMovement : MonoBehaviour
     [SerializeField] private Transform  _hmdTransform;
     [SerializeField] private GameObject  head;
     private NavMeshAgent agent;
-    public float speed;
-    public bool DisableSideWayMovement;    
+    [Range(0.0f,15.0f)] public float speed;
     private Vector3 BodyDirection;
     // Start is called before the first frame update
     void Start()
